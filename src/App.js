@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { Auth0Provider } from "@auth0/auth0-react";
+import LoginButton from "./components/LoginButton";
+import LogoutButton from "./components/LogoutButton";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Auth0Provider
+      domain="dynamics-of-development.us.auth0.com"
+      clientId="x3v9kwN7gfxvTKdDtKB2901L14Y9SVWe"
+      redirectUri={window.location.origin}
+    >
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <div>
+            <LoginButton />
+            <LogoutButton />
+          </div>
+        </header>
+      </div>
+    </Auth0Provider>
   );
 }
 
